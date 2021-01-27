@@ -1,23 +1,16 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
-
-//import java.util.Date;
-
 import model.dao.DaoFactory;
 import model.dao.SellerDao;
 import model.entities.Department;
-//import model.entities.Department;
 import model.entities.Seller;
 
 public class Program {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
-		//Department obj = new Department(1, "Books");		
-		
-		//Seller seller = new Seller(21, "Bob", "bob@gmail.com", new Date(), 3000.0, obj);
 		
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
@@ -38,7 +31,10 @@ public class Program {
 			System.out.println(obj);
 		}
 		
-		
+		System.out.println("\n=== Test 4: Seller insert ===");
+		Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
+		sellerDao.insert(newSeller);
+		System.out.println("Insert! New id = " + newSeller.getId());
 
 	}
 
